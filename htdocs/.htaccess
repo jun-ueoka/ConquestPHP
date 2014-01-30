@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule ^index.php/ - [L]
+RewriteRule ^(css|script|img)/(.*)$ - [L]
+RewriteRule ^(.*)$ index.php/$1 [QSA,L]
