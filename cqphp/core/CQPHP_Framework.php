@@ -6,6 +6,7 @@
  */
 class CQPHP_Framework
 {
+
 	/**
 	 * モジュールを読み込み、SmartyによるOutputを実行する
 	 */

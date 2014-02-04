@@ -17,13 +17,13 @@ class CQPHP_DefineSetting {
 	static	public	$_template_extension	= 'html';
 
 	/** Smarty テンプレートパス */
-	static	public	 $_smarty_template_dir	= "";
+	static	public	$_smarty_template_dir	= "";
 	/** Smarty コンパイルパス */
-	static	public	 $_smarty_compile_dir	= "";
+	static	public	$_smarty_compile_dir	= "";
 	/** Smarty コンフィグパス */
-	static	public	 $_smarty_config_dir	= "";
+	static	public	$_smarty_config_dir		= "";
 	/** Smarty キャッシュパス */
-	static	public	 $_smarty_cache_dir		= "";
+	static	public	$_smarty_cache_dir		= "";
 
 	/**
 	 *	アクションファイル読み込み

@@ -11,7 +11,7 @@
 //フレームワーク側ディレクトリ定数設定
 define('CQPHP_DIR',				str_replace("\\", "/", dirname(__FILE__)));
 define('CQPHP_DIR_CACHE',		CQPHP_DIR . '/cache');
-define('CQPHP_DIR_CLASS',		CQPHP_DIR . '/class');
+define('CQPHP_DIR_CORE',		CQPHP_DIR . '/core');
 define('CQPHP_DIR_DEFINE',		CQPHP_DIR . '/define');
 define('CQPHP_DIR_FILTER',		CQPHP_DIR . '/filter');
 define('CQPHP_DIR_INTERFACE',	CQPHP_DIR . '/interface');
@@ -23,11 +23,11 @@ require_once(CQPHP_DIR_LIBRARY . '/Garuda/Garuda.php');
 
 //インターフェース読み込み
 require_once(CQPHP_DIR_INTERFACE . '/application.php');
-require_once(CQPHP_DIR_CLASS . '/CQPHP__Autoload.php');
+require_once(CQPHP_DIR_CORE . '/CQPHP__Autoload.php');
 
 //autoloadのデフォルト設定
 CQPHP__Autoload::setAutoloadDir(
-	CQPHP_DIR_CLASS
+	CQPHP_DIR_CORE
 ,	CQPHP_DIR_DEFINE
 ,	CQPHP_DIR_FILTER
 );
