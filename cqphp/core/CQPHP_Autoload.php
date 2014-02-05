@@ -6,7 +6,7 @@
  *
  *	@author	CQPHP
  */
-class CQPHP__Autoload {
+class CQPHP_Autoload {
 
 	/**
 	 *	自動読込を行うディレクトリを格納する配列
@@ -50,4 +50,4 @@ class CQPHP__Autoload {
 }
 
 //自動読み込みメソッド設定
-spl_autoload_register("CQPHP__Autoload::autoloadClass");
+spl_autoload_register("CQPHP_Autoload::autoloadClass");

@@ -91,25 +91,5 @@ class CQPHP_Utility
 			return CQPHP_DefineBrowser::OTHER;
 		}
 	}
-
-	/**
-	 *	URLのQueryStringからアクションパスを取得
-	 *	@return	string	アクションパス
-	 */
-	static public function getActionPathByUrl() {
-		$baseUrl	= rtrim(pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_DIRNAME), '/');
-		$path		= parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-		if(strpos($path, $baseUrl) === 0) {
-			$path		= substr($path, strlen($baseUrl));
-			$path		= ltrim($path, '/');
-		}
-
-		//QueryStringから判断出来ない場合、indexとする
-		if(($path == '') || (substr($path, -1, 1) == '/')) {
-			$path .= 'index';
-		}
-
-		return $path;
-	}
 }
 

@@ -8,8 +8,8 @@
 /**
  *	テンプレート出力クラスインターフェース
  */
-interface CQPHP_InterfaceTemplate
-{
+interface CQPHP_InterfaceTemplate {
+
 	public function __construct($path);
 	public function setTemplate($path);
 	public function assign($name, $value, $htmlspc = false);
@@ -19,8 +19,8 @@ interface CQPHP_InterfaceTemplate
 /**
  *	アクション実行クラスインターフェース
  */
-interface CQPHP_InterfaceAction
-{
+interface CQPHP_InterfaceAction {
+
 	public function __construct($path);
 	public function execute(CQPHP_InterfaceTemplate $template);
 	public function validate();

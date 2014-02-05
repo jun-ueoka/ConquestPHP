@@ -27,8 +27,7 @@ define('DIR_MODEL',		DIR_BASE.'/model');
 define('DIR_TEMPLATE',	DIR_BASE.'/template');
 
 //サイト情報
-if(!empty($_SERVER['HTTP_HOST']))	define('SERVER_DOMAIN', $_SERVER["HTTP_HOST"]);
-else								define('SERVER_DOMAIN', $_SERVER["SERVER_NAME"]);
+define('SERVER_DOMAIN', 	CQPHP_Request::getHost());
 define('SERVER_ADDRESS',	$_SERVER['SERVER_ADDR']);
 define('SERVER_URI',		rtrim(dirname($_SERVER['SCRIPT_NAME']), '/'));
 

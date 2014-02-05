@@ -4,15 +4,48 @@
  *
  *	@author	CQPHP
  */
-class CQPHP_Framework
-{
+class CQPHP_Framework {
+
+	/** Singleton */
+	static private $instance	= null;
+
+	/** 実行がコマンドラインからかどうか */
+	private $commandline		= FALSE;
 
 	/**
-	 * モジュールを読み込み、SmartyによるOutputを実行する
+	 *	インスタンス生成
+	 *	@return	CQPHP_Framework
 	 */
-	static public function executeAction($path)
-	{
-		//action
+	static public function getInstance() {
+		if(is_null(self::$instance)) {
+			self::$instance	= new self();
+		}
+		return self::$instance;
+	}
+
+	/**
+	 *	コンストラクタ
+	 */
+	public function __construct() {
+	}
+
+	/**
+	 *	フレームワーク実行
+	 */
+	public function run($commandline) {
+		$this->commandline	= $commandline;
+
+		$path	= CQPHP_Request::getActionPathByUrl();
+
+		$this->executeAction($path);
+	}
+
+	/**
+	 *	モジュールを読み込み、SmartyによるOutputを実行する
+	 *	@param	string	$path	アクションパス
+	 */
+	public function executeAction($path) {
+		//アクション実行
 		$class_name		= CQPHP_DefineSetting::loadActionFile($path);
 		$template		= new CQPHP_ApplicationTemplate($path);
 		if(class_exists($class_name)) {
@@ -22,12 +55,12 @@ class CQPHP_Framework
 			throw new Exception('Unknown Action Class');
 		}
 
-		//entry value to template
+		//テンプレートにアクションクラスのパラメータを保存
 		foreach($action_class->getAssignValues() as $key => $value) {
 			$template->assign($key, $value);
 		}
 
-		//template
+		//テンプレート実行
 		if($template->display() === FALSE) {
 			throw new Exception('Unknown Template HTML');
 		}

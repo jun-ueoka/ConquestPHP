@@ -23,10 +23,10 @@ require_once(CQPHP_DIR_LIBRARY . '/Garuda/Garuda.php');
 
 //インターフェース読み込み
 require_once(CQPHP_DIR_INTERFACE . '/application.php');
-require_once(CQPHP_DIR_CORE . '/CQPHP__Autoload.php');
+require_once(CQPHP_DIR_CORE . '/CQPHP_Autoload.php');
 
 //autoloadのデフォルト設定
-CQPHP__Autoload::setAutoloadDir(
+CQPHP_Autoload::setAutoloadDir(
 	CQPHP_DIR_CORE
 ,	CQPHP_DIR_DEFINE
 ,	CQPHP_DIR_FILTER

@@ -44,7 +44,8 @@ try {
 	require($config_file_path);
 
 	//フレームワーク実行
-	CQPHP_Framework::executeAction(CQPHP_Utility::getActionPathByUrl());
+	$commandline	= (php_sapi_name() == "cli");
+	CQPHP_Framework::getInstance()->run($commandline);
 
 }
 catch(Exception $e) {
