@@ -4,6 +4,8 @@
  */
 class _Index extends CQPHP_ApplicationAction
 {
+	public	$_g_test;
+
 	/**
 	 * Validate Check
 	 */

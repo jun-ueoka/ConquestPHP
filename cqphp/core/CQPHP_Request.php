@@ -76,5 +76,26 @@ class CQPHP_Request
 
 		return $path;
 	}
+
+	/**
+	 *	リクエストデータを取得
+	 *	@param	boolean	$delete_request		取得時に削除するかの命令
+	 *	@return	multitype:array				各種パラメータ情報
+	 */
+	static public function getRequestParams($delete_request = false) {
+		$array = array(
+			'get'		=> $_GET
+		,	'post'		=> $_POST
+		,	'cookie'	=> $_COOKIE
+		);
+
+		//リクエスト削除命令がある場合は削除
+		if($delete_request) {
+			$_GET		= array();
+			$_POST		= array();
+			$_COOKIE	= array();
+		}
+		return $array;
+	}
 }
 

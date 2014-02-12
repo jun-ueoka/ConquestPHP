@@ -54,6 +54,5 @@ class CQPHP_ApplicationTemplate implements CQPHP_InterfaceTemplate {
 			return FALSE;
 		}
 		$this->smarty->display($check_path);
-		exit;
 	}
 }

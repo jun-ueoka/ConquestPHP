@@ -46,15 +46,33 @@ class CQPHP_ApplicationAction implements CQPHP_InterfaceAction {
 	}
 
 	/**
-	 *	インスタンスに宣言されている全変数を配列で取得
-	 *	@return	array	変数格納配列
+	 *	インスタンスに宣言されている属性に対し、リクエストデータを代入する
+	 *		各リクエストデータ毎に対応した名称を持つ属性に対して代入を行う
+	 *		例えばGET値なら、$_GET['test']の値を受け取りたい場合、アクションに「$_g_test」属性を宣言する
+	 *	@param	array	$get		GET値、名称が「$_g_xxxx」のルールで宣言された属性に対し代入
+	 *	@param	array	$post		POST値、名称が「$_p_xxxx」のルールで宣言された属性に対し代入
+	 *	@param	array	$cookie		COOKIE値、名称が「$_c_xxxx」のルールで宣言された属性に対し代入
+	 */
+	public function setRequestParams(array &$get, array &$post, array &$cookie) {
+		$tmp = array("_g_" => $get, "_p_" => $post, "_c_" => $cookie);
+		foreach($tmp as $code => $param) {
+			foreach($param as $p_key => $p_value) {
+				$param_name = $code . $p_key;
+				if(property_exists($this, $param_name)) {
+					$this->$param_name	= $p_value;
+				}
+			}
+		}
+	}
+
+	/**
+	 *	インスタンスに宣言されている全属性を配列で取得
+	 *	@return	array	属性格納配列
 	 */
 	public function getAssignValues() {
 		$ret	= array();
 		foreach((array)$this as $key => $value) {
-			if(isset($this->$key)) {
-				$ret[$key]	= $value;
-			}
+			$ret[$key]	= $value;
 		}
 		return	$ret;
 	}
