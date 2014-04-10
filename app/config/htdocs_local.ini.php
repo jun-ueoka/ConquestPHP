@@ -19,7 +19,7 @@ set_include_path(get_include_path());// . PATH_SEPARATOR . '');
 //デバッグorリリース
 define('DEVELOPMENT', TRUE);
 
-//URL定数
+//URL設定
 define('URL_DOMAIN',	'http://conquest-php.localhost');
 define('URL_SITE',		URL_DOMAIN . '/');
 

@@ -39,7 +39,7 @@ class CQPHP_Framework {
 		//出力のバッファリングを開始
 		ob_start();
 
-		//TODO initialフィルター
+		//TODO startフィルター
 
 		//外部からのリクエストデータを全て取得
 		$requests	= CQPHP_Request::getRequestParams(true);
@@ -82,7 +82,7 @@ class CQPHP_Framework {
 		$contents = ob_get_contents();
 		ob_end_clean();
 
-		//TODO lastフィルター
+		//TODO endフィルター
 
 		echo $contents;
 	}
